@@ -1,0 +1,138 @@
+<div class="min-h-screen flex bg-slate-50">
+  <!-- LEFT SIDE -->
+  <div
+    class="hidden lg:block w-1/2 relative"
+  >
+    <img
+      src="https://images.unsplash.com/photo-1630283017802-785b7aff9aac?auto=format&fit=crop&w=1400&q=80"
+      class="absolute inset-0 h-full w-full object-cover"
+      alt="Escritório"
+    />
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-slate-900/60"></div>
+
+    <div class="relative z-10 flex flex-col h-full px-16 pt-10 pb-12 text-white">
+      <!-- logo -->
+      <div class="flex items-center gap-3">
+        <div
+          class="h-11 w-11 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center"
+        >
+          <span class="material-icons text-2xl">timeline</span>
+        </div>
+        <span class="text-2xl font-semibold">operaFlow</span>
+      </div>
+
+      <!-- hero -->
+      <div class="mt-auto mb-20 max-w-md">
+        <h2 class="text-4xl font-semibold leading-tight">
+          Otimize a gestão<br />
+          das suas Ordens de Serviços
+        </h2>
+        <p class="mt-4 text-sm text-slate-100/80">
+          Tenha um fluxo de OS simples e eficiente com nossa poderosa
+          plataforma de gestão, criada para negócios modernos.
+        </p>
+      </div>
+
+      <!-- footer icons -->
+      <div class="mt-auto flex gap-10 text-sm text-slate-100/90">
+        <div class="flex items-center gap-2">
+          <span class="material-icons text-3xl">shield</span>
+          <div class="flex flex-col leading-tight">
+            <span class="text-xs uppercase tracking-wide text-slate-200/80">
+              Segurança
+            </span>
+            <span class="font-medium text-sm">Empresarial</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="material-icons text-3xl">bolt</span>
+          <div class="flex flex-col leading-tight">
+            <span class="text-xs uppercase tracking-wide text-slate-200/80">
+              Alta
+            </span>
+            <span class="font-medium text-sm">Performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="flex w-full lg:w-1/2 items-center justify-center px-6 lg:px-16">
+    <div class="w-full max-w-md space-y-6">
+      <div>
+        <h2 class="text-3xl font-semibold text-slate-900">Bem-vindo</h2>
+        <p class="mt-2 text-sm text-slate-500">
+          Informe suas credenciais para acessar sua conta
+        </p>
+      </div>
+
+      <form class="space-y-5" (ngSubmit)="login()">
+        <!-- EMAIL -->
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">
+            Endereço de e-mail
+          </label>
+          <div class="">
+            <input
+              type="email"
+              placeholder="voce@suaempresa.com"
+              class="w-full rounded-lg border border-slate-300 bg-white py-3 pl-3 pr-3 text-sm shadow-sm
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              name="email"
+              [(ngModel)]="email"
+            />
+          </div>
+
+          <label class="block text-sm font-medium text-slate-700 mb-1 mt-4">
+            Senha
+          </label>
+          <div class="">
+            <input
+              type="password"
+              placeholder="••••••••"
+              class="w-full rounded-lg border border-slate-300 bg-white py-3 pl-3 pr-11 text-sm shadow-sm
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              name="password"
+              [(ngModel)]="password"
+            />
+          </div>
+        </div>
+
+        <!-- remember / forgot -->
+        <div class="flex items-center justify-between text-xs text-slate-600">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+            />
+            <span>Lembrar de mim</span>
+          </label>
+
+          <button type="button" class="text-indigo-600 hover:underline">
+            Esqueceu a senha?
+          </button>
+        </div>
+
+        <!-- SIGN IN BUTTON -->
+        <button
+          type="submit"
+          class="w-full rounded-lg bg-slate-900 py-3 text-sm font-semibold text-white shadow-sm
+                 hover:bg-slate-800 transition"
+        >
+          Entrar
+        </button>
+
+        <!-- SIGNUP LINK -->
+        <p class="text-center text-xs text-slate-500 mt-4">
+          Ainda não tem uma conta?
+          <button type="button" class="text-indigo-600 hover:underline">
+            Criar conta gratuitamente
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
