@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home • Gestão de O.S.</title>
+    <title>Home • SOS-I (Ordens de Serviço Industrial)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* melhora a suavidade do blur em alguns browsers */
       .glass { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
     </style>
   </head>
 
   <body class="min-h-screen bg-slate-950 text-slate-100">
-    <!-- Background decor -->
+    <!-- Background decor (mesmo padrão das outras páginas) -->
     <div class="pointer-events-none fixed inset-0 overflow-hidden">
       <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl"></div>
       <div class="absolute -bottom-56 -left-20 h-[520px] w-[520px] rounded-full bg-cyan-500/15 blur-3xl"></div>
@@ -24,8 +23,7 @@
       <!-- Topbar -->
       <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/60 glass">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div class="flex items-center gap-3">
-            <!-- Logo -->
+          <a href="home.html" class="flex items-center gap-3">
             <div class="h-10 w-10 rounded-2xl bg-white/10 ring-1 ring-white/15 flex items-center justify-center">
               <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 7h16M7 4v16M17 4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".9"/>
@@ -33,10 +31,10 @@
               </svg>
             </div>
             <div class="leading-tight">
-              <p class="text-sm text-slate-300">Painel</p>
-              <h1 class="text-base font-semibold tracking-tight">Gestão de Ordens de Serviço</h1>
+              <p class="text-sm text-slate-300">SOS-I</p>
+              <h1 class="text-base font-semibold tracking-tight">Sistema de Ordens de Serviço Industrial</h1>
             </div>
-          </div>
+          </a>
 
           <div class="flex items-center gap-3">
             <!-- Search -->
@@ -49,26 +47,30 @@
                   </svg>
                 </span>
                 <input
-                  class="w-[340px] rounded-xl bg-white/5 ring-1 ring-white/10 px-10 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/60"
-                  placeholder="Buscar OS, ativo, setor, cliente..."
+                  class="w-[360px] rounded-xl bg-white/5 ring-1 ring-white/10 px-10 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/60"
+                  placeholder="Buscar OS, setor, máquina/equipamento..."
                 />
               </label>
             </div>
 
-            <!-- Quick actions -->
-            <button class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-indigo-500/90 px-3.5 py-2 text-sm font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60">
+            <!-- CTA primária (ajusta conforme papel do usuário) -->
+            <a
+              href="/abrir-os"
+              class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-indigo-500/90 px-3.5 py-2 text-sm font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              title="Operador: abrir nova OS"
+            >
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
                 <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
-              Nova OS
-            </button>
+              Abrir OS
+            </a>
 
             <!-- User -->
             <div class="flex items-center gap-3 rounded-2xl bg-white/5 ring-1 ring-white/10 px-3 py-2">
               <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-400/50 to-cyan-400/30 ring-1 ring-white/15"></div>
               <div class="hidden sm:block leading-tight">
                 <p class="text-sm font-medium">Usuário</p>
-                <p class="text-xs text-slate-300">Supervisor • Turno A</p>
+                <p class="text-xs text-slate-300">Perfil: Admin • Turno A</p>
               </div>
             </div>
           </div>
@@ -77,178 +79,196 @@
 
       <!-- Main -->
       <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <!-- Hero -->
+        <!-- Hero / contexto -->
         <section class="mb-6">
           <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6 sm:p-8">
-            <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p class="text-sm text-slate-300">Bem-vindo de volta 👋</p>
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div class="max-w-2xl">
+                <p class="text-sm text-slate-300">Operação industrial • tempo é dinheiro</p>
                 <h2 class="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Acompanhe as O.S. e a saúde da operação em tempo real
+                  Registre falhas, priorize atendimentos e acompanhe status em tempo real
                 </h2>
-                <p class="mt-2 max-w-2xl text-sm text-slate-300">
-                  Visualize backlog, prioridades, status por setor e indicadores de manutenção. Tudo em um só lugar.
+                <p class="mt-2 text-sm text-slate-300">
+                  Fluxo do SOS-I: Operador cria OS → Admin atribui técnico → Técnico executa e atualiza status → Admin acompanha pelo dashboard.
+                </p>
+                <p class="mt-2 text-xs text-slate-400">
+                  Autenticação do MVP: login por e-mail/senha + token “fake” (mockado no front). Usuários são criados pelo Admin.
                 </p>
 
                 <div class="mt-5 flex flex-wrap gap-3">
-                  <button class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15">
+                  <a
+                    href="/abrir-os"
+                    class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+                    title="/abrir-os → Operador"
+                  >
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                      <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.6" />
-                      <path d="M4 4h4M16 4h4M4 20h4M16 20h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                     </svg>
-                    Ver fila de O.S.
-                  </button>
-                  <button class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15">
+                    Abrir OS (Operador)
+                  </a>
+
+                  <a
+                    href="/minhas-os"
+                    class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+                    title="/minhas-os → Técnico"
+                  >
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
                       <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0Z" stroke="currentColor" stroke-width="1.6"/>
                     </svg>
-                    Planejamento do dia
-                  </button>
-                  <button class="inline-flex items-center gap-2 rounded-xl bg-indigo-500/90 px-4 py-2 text-sm font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 sm:hidden">
+                    Minhas OS (Técnico)
+                  </a>
+
+                  <a
+                    href="/gerenciar-os"
+                    class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+                    title="/gerenciar-os → Técnico + Admin"
+                  >
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.6" />
+                      <path d="M4 4h4M16 4h4M4 20h4M16 20h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
                     </svg>
-                    Nova OS
-                  </button>
+                    Gerenciar OS (Admin/Técnico)
+                  </a>
+
+                  <a
+                    href="/dashboard"
+                    class="inline-flex items-center gap-2 rounded-xl bg-indigo-500/90 px-4 py-2 text-sm font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+                    title="/dashboard → apenas Admin"
+                  >
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 13h7V4H4v9Zm9 7h7V11h-7v9ZM4 20h7v-5H4v5Zm9-11h7V4h-7v5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    </svg>
+                    Dashboard (Admin)
+                  </a>
                 </div>
               </div>
 
-              <!-- Mini KPI -->
-              <div class="grid w-full gap-3 sm:grid-cols-3 lg:w-[520px] lg:grid-cols-1">
+              <!-- KPI "Admin dashboard" (requisitos do documento) -->
+              <div class="grid w-full gap-3 sm:grid-cols-2 lg:w-[520px] lg:grid-cols-1">
                 <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
                   <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">O.S. em andamento</p>
-                    <span class="rounded-full bg-indigo-500/15 px-2 py-1 text-xs text-indigo-200 ring-1 ring-indigo-400/20">Agora</span>
+                    <p class="text-sm text-slate-300">OS abertas</p>
+                    <span class="rounded-full bg-cyan-500/15 px-2 py-1 text-xs text-cyan-200 ring-1 ring-cyan-400/20">Hoje</span>
+                  </div>
+                  <p class="mt-2 text-3xl font-semibold tracking-tight">19</p>
+                  <p class="mt-1 text-xs text-slate-400">Inclui “Aberto” + “Pendente”</p>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-slate-300">Em andamento</p>
+                    <span class="rounded-full bg-indigo-500/15 px-2 py-1 text-xs text-indigo-200 ring-1 ring-indigo-400/20">Execução</span>
                   </div>
                   <p class="mt-2 text-3xl font-semibold tracking-tight">12</p>
-                  <p class="mt-1 text-xs text-slate-400">+3 nas últimas 2h</p>
+                  <p class="mt-1 text-xs text-slate-400">Técnicos em campo</p>
                 </div>
 
                 <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
                   <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">Backlog</p>
-                    <span class="rounded-full bg-amber-500/15 px-2 py-1 text-xs text-amber-200 ring-1 ring-amber-400/20">Priorizar</span>
-                  </div>
-                  <p class="mt-2 text-3xl font-semibold tracking-tight">27</p>
-                  <p class="mt-1 text-xs text-slate-400">8 com SLA próximo</p>
-                </div>
-
-                <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-                  <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">Disponibilidade</p>
+                    <p class="text-sm text-slate-300">Concluídas</p>
                     <span class="rounded-full bg-emerald-500/15 px-2 py-1 text-xs text-emerald-200 ring-1 ring-emerald-400/20">OK</span>
                   </div>
-                  <p class="mt-2 text-3xl font-semibold tracking-tight">98.6%</p>
-                  <p class="mt-1 text-xs text-slate-400">Meta: 97.0%</p>
+                  <p class="mt-2 text-3xl font-semibold tracking-tight">31</p>
+                  <p class="mt-1 text-xs text-slate-400">Últimas 24h</p>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-slate-300">Média de tempo</p>
+                    <span class="rounded-full bg-white/10 px-2 py-1 text-xs text-slate-200 ring-1 ring-white/10">Atendimento</span>
+                  </div>
+                  <p class="mt-2 text-3xl font-semibold tracking-tight">2h 18m</p>
+                  <p class="mt-1 text-xs text-slate-400">Meta (exemplo): &lt; 3h</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Cards -->
+        <!-- Conteúdo principal -->
         <section class="grid gap-6 lg:grid-cols-3">
-          <!-- Col 1 -->
+          <!-- Coluna principal -->
           <div class="space-y-6 lg:col-span-2">
-            <!-- Status Board -->
+            <!-- Quadro de status (pendente → em andamento → concluída) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h3 class="text-lg font-semibold tracking-tight">Status das O.S.</h3>
-                  <p class="text-sm text-slate-300">Resumo por etapa (últimas 24h).</p>
+                  <h3 class="text-lg font-semibold tracking-tight">Fluxo de status</h3>
+                  <p class="text-sm text-slate-300">Pendente → Em andamento → Concluída (visão do MVP).</p>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                  <button class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Hoje</button>
-                  <button class="rounded-xl bg-white/5 px-3 py-2 text-xs font-medium ring-1 ring-white/10 hover:bg-white/10">7 dias</button>
-                  <button class="rounded-xl bg-white/5 px-3 py-2 text-xs font-medium ring-1 ring-white/10 hover:bg-white/10">30 dias</button>
-                </div>
+                <a
+                  href="/gerenciar-os"
+                  class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+                >
+                  Ver lista completa
+                  <span class="text-slate-300">→</span>
+                </a>
               </div>
 
-              <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <!-- Item -->
+              <div class="mt-6 grid gap-4 sm:grid-cols-3">
                 <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
                   <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">Abertas</p>
-                    <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                    <p class="text-sm text-slate-300">Pendente</p>
+                    <span class="h-2 w-2 rounded-full bg-amber-400"></span>
                   </div>
-                  <p class="mt-2 text-2xl font-semibold">19</p>
-                  <div class="mt-3 h-2 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[55%] rounded-full bg-cyan-400/80"></div>
-                  </div>
-                  <p class="mt-2 text-xs text-slate-400">55% do fluxo</p>
+                  <p class="mt-2 text-2xl font-semibold">8</p>
+                  <p class="mt-2 text-xs text-slate-400">Aguardando triagem/atribuição</p>
                 </div>
 
                 <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
                   <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">Em execução</p>
+                    <p class="text-sm text-slate-300">Em andamento</p>
                     <span class="h-2 w-2 rounded-full bg-indigo-400"></span>
                   </div>
                   <p class="mt-2 text-2xl font-semibold">12</p>
-                  <div class="mt-3 h-2 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[38%] rounded-full bg-indigo-400/80"></div>
-                  </div>
-                  <p class="mt-2 text-xs text-slate-400">38% do fluxo</p>
+                  <p class="mt-2 text-xs text-slate-400">Execução pelo técnico</p>
                 </div>
 
                 <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
                   <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">Aguardando peça</p>
-                    <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-                  </div>
-                  <p class="mt-2 text-2xl font-semibold">5</p>
-                  <div class="mt-3 h-2 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[16%] rounded-full bg-amber-400/80"></div>
-                  </div>
-                  <p class="mt-2 text-xs text-slate-400">Foco em compras</p>
-                </div>
-
-                <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
-                  <div class="flex items-center justify-between">
-                    <p class="text-sm text-slate-300">Concluídas</p>
+                    <p class="text-sm text-slate-300">Concluída</p>
                     <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
                   </div>
                   <p class="mt-2 text-2xl font-semibold">31</p>
-                  <div class="mt-3 h-2 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[72%] rounded-full bg-emerald-400/80"></div>
-                  </div>
-                  <p class="mt-2 text-xs text-slate-400">+10 desde ontem</p>
+                  <p class="mt-2 text-xs text-slate-400">Encerradas com observações</p>
                 </div>
               </div>
             </div>
 
-            <!-- Recent OS -->
+            <!-- OS recentes (com campos do MVP) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h3 class="text-lg font-semibold tracking-tight">O.S. recentes</h3>
-                  <p class="text-sm text-slate-300">Acompanhe as últimas movimentações.</p>
+                  <p class="text-sm text-slate-300">
+                    Setor, máquina/equipamento, descrição, prioridade e data (modelo MVP).
+                  </p>
                 </div>
-
-                <button class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 6h16M6 12h12M8 18h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                  </svg>
-                  Ver todas
-                </button>
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full bg-white/10 px-2.5 py-1 text-xs text-slate-200 ring-1 ring-white/10">Corte</span>
+                  <span class="rounded-full bg-white/10 px-2.5 py-1 text-xs text-slate-200 ring-1 ring-white/10">Solda</span>
+                  <span class="rounded-full bg-white/10 px-2.5 py-1 text-xs text-slate-200 ring-1 ring-white/10">Montagem</span>
+                </div>
               </div>
 
               <div class="mt-6 overflow-hidden rounded-2xl ring-1 ring-white/10">
                 <div class="divide-y divide-white/10 bg-slate-900/30">
-                  <!-- Row -->
                   <div class="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
                     <div class="flex items-start gap-3">
                       <div class="mt-1 h-9 w-9 rounded-xl bg-cyan-500/15 ring-1 ring-cyan-400/20 flex items-center justify-center">
                         <span class="text-xs font-semibold text-cyan-200">OS</span>
                       </div>
                       <div>
-                        <p class="text-sm font-medium">OS-1024 • Linha 02 • Ajuste de esteira</p>
-                        <p class="text-xs text-slate-400">Setor: Produção • Ativo: ESTEIRA-07 • Aberta há 1h</p>
+                        <p class="text-sm font-medium">OS-1041 • Setor: Corte • Máquina: SERRA-02</p>
+                        <p class="text-xs text-slate-400">
+                          Falha: vibração excessiva • Prioridade: Alta • Abertura: hoje 08:12 • Status: Aberto
+                        </p>
                       </div>
                     </div>
                     <div class="flex items-center justify-between gap-3 sm:justify-end">
-                      <span class="rounded-full bg-indigo-500/15 px-2.5 py-1 text-xs font-medium text-indigo-200 ring-1 ring-indigo-400/20">Em execução</span>
-                      <button class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Abrir</button>
+                      <span class="rounded-full bg-cyan-500/15 px-2.5 py-1 text-xs font-medium text-cyan-200 ring-1 ring-cyan-400/20">Aberto</span>
+                      <a href="/gerenciar-os" class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Abrir</a>
                     </div>
                   </div>
 
@@ -258,92 +278,69 @@
                         <span class="text-xs font-semibold text-amber-200">OS</span>
                       </div>
                       <div>
-                        <p class="text-sm font-medium">OS-1023 • Compressor • Troca de filtro</p>
-                        <p class="text-xs text-slate-400">Setor: Utilidades • Ativo: COMP-03 • Aguardando peça</p>
+                        <p class="text-sm font-medium">OS-1040 • Setor: Solda • Equip.: COMP-03</p>
+                        <p class="text-xs text-slate-400">
+                          Falha: pressão instável • Prioridade: Média • Abertura: ontem 17:46 • Status: Pendente
+                        </p>
                       </div>
                     </div>
                     <div class="flex items-center justify-between gap-3 sm:justify-end">
-                      <span class="rounded-full bg-amber-500/15 px-2.5 py-1 text-xs font-medium text-amber-200 ring-1 ring-amber-400/20">Aguardando peça</span>
-                      <button class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Abrir</button>
+                      <span class="rounded-full bg-amber-500/15 px-2.5 py-1 text-xs font-medium text-amber-200 ring-1 ring-amber-400/20">Pendente</span>
+                      <a href="/gerenciar-os" class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Abrir</a>
                     </div>
                   </div>
 
                   <div class="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
                     <div class="flex items-start gap-3">
-                      <div class="mt-1 h-9 w-9 rounded-xl bg-emerald-500/15 ring-1 ring-emerald-400/20 flex items-center justify-center">
-                        <span class="text-xs font-semibold text-emerald-200">OS</span>
+                      <div class="mt-1 h-9 w-9 rounded-xl bg-indigo-500/15 ring-1 ring-indigo-400/20 flex items-center justify-center">
+                        <span class="text-xs font-semibold text-indigo-200">OS</span>
                       </div>
                       <div>
-                        <p class="text-sm font-medium">OS-1022 • Prensa • Calibração e teste</p>
-                        <p class="text-xs text-slate-400">Setor: Manutenção • Ativo: PRENSA-01 • Finalizada há 3h</p>
+                        <p class="text-sm font-medium">OS-1039 • Setor: Montagem • Máquina: ESTEIRA-07</p>
+                        <p class="text-xs text-slate-400">
+                          Falha: travamento intermitente • Prioridade: Alta • Abertura: hoje 06:02 • Status: Em andamento
+                        </p>
                       </div>
                     </div>
                     <div class="flex items-center justify-between gap-3 sm:justify-end">
-                      <span class="rounded-full bg-emerald-500/15 px-2.5 py-1 text-xs font-medium text-emerald-200 ring-1 ring-emerald-400/20">Concluída</span>
-                      <button class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Abrir</button>
+                      <span class="rounded-full bg-indigo-500/15 px-2.5 py-1 text-xs font-medium text-indigo-200 ring-1 ring-indigo-400/20">Em andamento</span>
+                      <a href="/minhas-os" class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">Abrir</a>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <p class="mt-3 text-xs text-slate-500">
+                Campos mínimos do MVP: setor, máquina/equipamento, descrição, prioridade, data automática, status inicial “Aberto”.
+              </p>
             </div>
           </div>
 
-          <!-- Col 2 (side) -->
+          <!-- Sidebar -->
           <aside class="space-y-6">
-            <!-- Alerts -->
+            <!-- OS por técnico (dashboard Admin) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <div class="flex items-center justify-between">
-                <h3 class="text-lg font-semibold tracking-tight">Alertas</h3>
-                <span class="rounded-full bg-white/10 px-2.5 py-1 text-xs text-slate-200 ring-1 ring-white/10">3</span>
+                <h3 class="text-lg font-semibold tracking-tight">OS por técnico</h3>
+                <a href="/dashboard" class="text-sm text-slate-300 hover:text-slate-100 underline decoration-white/20 hover:decoration-white/40">ver</a>
               </div>
-
-              <div class="mt-4 space-y-3">
-                <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
-                  <p class="text-sm font-medium">SLA próximo</p>
-                  <p class="mt-1 text-xs text-slate-400">2 O.S. vencem nas próximas 4h.</p>
-                  <button class="mt-3 w-full rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">
-                    Revisar prioridades
-                  </button>
-                </div>
-
-                <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
-                  <p class="text-sm font-medium">Falha recorrente</p>
-                  <p class="mt-1 text-xs text-slate-400">Ativo ESTEIRA-07 com 3 incidentes/7 dias.</p>
-                  <button class="mt-3 w-full rounded-xl bg-white/10 px-3 py-2 text-xs font-medium ring-1 ring-white/15 hover:bg-white/15">
-                    Abrir histórico
-                  </button>
-                </div>
-
-                <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
-                  <p class="text-sm font-medium">Aprovação pendente</p>
-                  <p class="mt-1 text-xs text-slate-400">1 O.S. aguardando validação do supervisor.</p>
-                  <button class="mt-3 w-full rounded-xl bg-indigo-500/90 px-3 py-2 text-xs font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60">
-                    Analisar agora
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Team & quick stats -->
-            <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
-              <h3 class="text-lg font-semibold tracking-tight">Equipe • Hoje</h3>
-              <p class="mt-1 text-sm text-slate-300">Distribuição de tarefas (genérico).</p>
+              <p class="mt-1 text-sm text-slate-300">Distribuição (exemplo).</p>
 
               <div class="mt-4 space-y-4">
                 <div>
                   <div class="flex items-center justify-between text-xs">
-                    <span class="text-slate-300">Mecânica</span>
-                    <span class="text-slate-400">6 em execução</span>
+                    <span class="text-slate-300">Téc. Ana (Elétrica)</span>
+                    <span class="text-slate-400">4 OS</span>
                   </div>
                   <div class="mt-2 h-2 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[62%] rounded-full bg-indigo-400/80"></div>
+                    <div class="h-2 w-[52%] rounded-full bg-indigo-400/80"></div>
                   </div>
                 </div>
 
                 <div>
                   <div class="flex items-center justify-between text-xs">
-                    <span class="text-slate-300">Elétrica</span>
-                    <span class="text-slate-400">3 em execução</span>
+                    <span class="text-slate-300">Téc. Bruno (Mecânica)</span>
+                    <span class="text-slate-400">3 OS</span>
                   </div>
                   <div class="mt-2 h-2 w-full rounded-full bg-white/10">
                     <div class="h-2 w-[38%] rounded-full bg-cyan-400/80"></div>
@@ -352,85 +349,99 @@
 
                 <div>
                   <div class="flex items-center justify-between text-xs">
-                    <span class="text-slate-300">Instrumentação</span>
-                    <span class="text-slate-400">2 em execução</span>
+                    <span class="text-slate-300">Téc. Carla (Instrumentação)</span>
+                    <span class="text-slate-400">2 OS</span>
                   </div>
                   <div class="mt-2 h-2 w-full rounded-full bg-white/10">
                     <div class="h-2 w-[28%] rounded-full bg-emerald-400/80"></div>
                   </div>
                 </div>
               </div>
-
-              <div class="mt-5 grid grid-cols-2 gap-3">
-                <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
-                  <p class="text-xs text-slate-400">Tempo médio</p>
-                  <p class="mt-1 text-lg font-semibold">2h 18m</p>
-                </div>
-                <div class="rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
-                  <p class="text-xs text-slate-400">Taxa de retorno</p>
-                  <p class="mt-1 text-lg font-semibold">3.2%</p>
-                </div>
-              </div>
             </div>
 
-            <!-- Shortcuts -->
+            <!-- Atalhos por papel (conforme guards) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
-              <h3 class="text-lg font-semibold tracking-tight">Atalhos</h3>
+              <h3 class="text-lg font-semibold tracking-tight">Atalhos (por perfil)</h3>
+              <p class="mt-1 text-sm text-slate-300">
+                Respeitando as rotas do MVP (/dashboard, /abrir-os, /minhas-os, /gerenciar-os).
+              </p>
+
               <div class="mt-4 grid gap-3">
-                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="#">
+                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="/abrir-os">
                   <div class="flex items-center gap-3">
                     <div class="h-10 w-10 rounded-xl bg-white/10 ring-1 ring-white/10 flex items-center justify-center">
                       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 4h10v16H7V4Z" stroke="currentColor" stroke-width="1.6"/>
-                        <path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
                       </svg>
                     </div>
                     <div>
-                      <p class="text-sm font-medium">Abrir relatório</p>
-                      <p class="text-xs text-slate-400">Resumo do dia / exportação</p>
+                      <p class="text-sm font-medium">Abrir nova OS</p>
+                      <p class="text-xs text-slate-400">Operador: registrar falha</p>
                     </div>
                   </div>
                   <span class="text-slate-400 group-hover:text-slate-200">→</span>
                 </a>
 
-                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="#">
+                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="/minhas-os">
                   <div class="flex items-center gap-3">
                     <div class="h-10 w-10 rounded-xl bg-white/10 ring-1 ring-white/10 flex items-center justify-center">
                       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                        <path d="M12 4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0Z" stroke="currentColor" stroke-width="1.6"/>
                       </svg>
                     </div>
                     <div>
-                      <p class="text-sm font-medium">Cadastrar ativo</p>
-                      <p class="text-xs text-slate-400">Máquinas, linhas e setores</p>
+                      <p class="text-sm font-medium">Minhas OS</p>
+                      <p class="text-xs text-slate-400">Técnico: executar e atualizar</p>
                     </div>
                   </div>
                   <span class="text-slate-400 group-hover:text-slate-200">→</span>
                 </a>
 
-                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="#">
+                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="/gerenciar-os">
                   <div class="flex items-center gap-3">
                     <div class="h-10 w-10 rounded-xl bg-white/10 ring-1 ring-white/10 flex items-center justify-center">
                       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M4 4h4M16 4h4M4 20h4M16 20h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
                       </svg>
                     </div>
                     <div>
-                      <p class="text-sm font-medium">Configurações</p>
-                      <p class="text-xs text-slate-400">SLA, usuários e permissões</p>
+                      <p class="text-sm font-medium">Gerenciar OS</p>
+                      <p class="text-xs text-slate-400">Admin/Técnico: listar/atualizar</p>
                     </div>
                   </div>
                   <span class="text-slate-400 group-hover:text-slate-200">→</span>
                 </a>
+
+                <a class="group flex items-center justify-between rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10 hover:bg-slate-900/60" href="/dashboard">
+                  <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-xl bg-white/10 ring-1 ring-white/10 flex items-center justify-center">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 13h7V4H4v9Zm9 7h7V11h-7v9ZM4 20h7v-5H4v5Zm9-11h7V4h-7v5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium">Dashboard</p>
+                      <p class="text-xs text-slate-400">Admin: indicadores e visão geral</p>
+                    </div>
+                  </div>
+                  <span class="text-slate-400 group-hover:text-slate-200">→</span>
+                </a>
+              </div>
+
+              <div class="mt-4 rounded-2xl bg-slate-900/40 p-4 ring-1 ring-white/10">
+                <p class="text-sm font-medium">Regra do MVP</p>
+                <p class="mt-1 text-xs text-slate-400">
+                  Somente Admin cria usuários. Operador abre OS. Técnico executa OS e registra observações.
+                </p>
               </div>
             </div>
           </aside>
         </section>
 
-        <!-- Footer -->
         <footer class="mt-10 pb-10 text-center text-xs text-slate-500">
-          © 2025 • Sistema de Gestão de Ordens de Serviço • Interface exemplo (Tailwind)
+          © 2025 • SOS-I • MVP (interface exemplo)
         </footer>
       </main>
     </div>

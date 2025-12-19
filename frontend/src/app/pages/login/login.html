@@ -1,138 +1,175 @@
-<div class="min-h-screen flex bg-slate-50">
-  <!-- LEFT SIDE -->
-  <div
-    class="hidden lg:block w-1/2 relative"
-  >
-    <img
-      src="https://images.unsplash.com/photo-1630283017802-785b7aff9aac?auto=format&fit=crop&w=1400&q=80"
-      class="absolute inset-0 h-full w-full object-cover"
-      alt="Escritório"
-    />
-    <!-- overlay -->
-    <div class="absolute inset-0 bg-slate-900/60"></div>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login • Gestão de O.S.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .glass { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    </style>
+  </head>
 
-    <div class="relative z-10 flex flex-col h-full px-16 pt-10 pb-12 text-white">
-      <!-- logo -->
-      <div class="flex items-center gap-3">
-        <div
-          class="h-11 w-11 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center"
-        >
-          <span class="material-icons text-2xl">timeline</span>
-        </div>
-        <span class="text-2xl font-semibold">operaFlow</span>
-      </div>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
 
-      <!-- hero -->
-      <div class="mt-auto mb-20 max-w-md">
-        <h2 class="text-4xl font-semibold leading-tight">
-          Otimize a gestão<br />
-          das suas Ordens de Serviços
-        </h2>
-        <p class="mt-4 text-sm text-slate-100/80">
-          Tenha um fluxo de OS simples e eficiente com nossa poderosa
-          plataforma de gestão, criada para negócios modernos.
-        </p>
-      </div>
-
-      <!-- footer icons -->
-      <div class="mt-auto flex gap-10 text-sm text-slate-100/90">
-        <div class="flex items-center gap-2">
-          <span class="material-icons text-3xl">shield</span>
-          <div class="flex flex-col leading-tight">
-            <span class="text-xs uppercase tracking-wide text-slate-200/80">
-              Segurança
-            </span>
-            <span class="font-medium text-sm">Empresarial</span>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <span class="material-icons text-3xl">bolt</span>
-          <div class="flex flex-col leading-tight">
-            <span class="text-xs uppercase tracking-wide text-slate-200/80">
-              Alta
-            </span>
-            <span class="font-medium text-sm">Performance</span>
-          </div>
-        </div>
-      </div>
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl"></div>
+      <div class="absolute -bottom-56 -left-20 h-[520px] w-[520px] rounded-full bg-cyan-500/15 blur-3xl"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.10),transparent_45%),radial-gradient(circle_at_80%_60%,rgba(34,211,238,0.10),transparent_40%)]"></div>
+      <div class="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:48px_48px]"></div>
     </div>
-  </div>
 
-  <!-- RIGHT SIDE -->
-  <div class="flex w-full lg:w-1/2 items-center justify-center px-6 lg:px-16">
-    <div class="w-full max-w-md space-y-6">
-      <div>
-        <h2 class="text-3xl font-semibold text-slate-900">Bem-vindo</h2>
-        <p class="mt-2 text-sm text-slate-500">
-          Informe suas credenciais para acessar sua conta
-        </p>
-      </div>
+    <div class="relative">
 
-      <form class="space-y-5" (ngSubmit)="login()">
-        <!-- EMAIL -->
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">
-            Endereço de e-mail
-          </label>
-          <div class="">
-            <input
-              type="email"
-              placeholder="voce@suaempresa.com"
-              class="w-full rounded-lg border border-slate-300 bg-white py-3 pl-3 pr-3 text-sm shadow-sm
-                     focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              name="email"
-              [(ngModel)]="email"
-            />
-          </div>
+      <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/60 glass">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <a href="home.html" class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-2xl bg-white/10 ring-1 ring-white/15 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7h16M7 4v16M17 4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".9"/>
+                <path d="M10 10h10v10H10V10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="leading-tight">
+              <p class="text-sm text-slate-300">Painel</p>
+              <h1 class="text-base font-semibold tracking-tight">Gestão de Ordens de Serviço</h1>
+            </div>
+          </a>
 
-          <label class="block text-sm font-medium text-slate-700 mb-1 mt-4">
-            Senha
-          </label>
-          <div class="">
-            <input
-              type="password"
-              placeholder="••••••••"
-              class="w-full rounded-lg border border-slate-300 bg-white py-3 pl-3 pr-11 text-sm shadow-sm
-                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              name="password"
-              [(ngModel)]="password"
-            />
+          <div class="flex items-center gap-3">
+            <a
+              href="/register"
+              class="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+            >
+              Criar conta
+              <span class="text-slate-300">→</span>
+            </a>
           </div>
         </div>
+      </header>
 
-        <!-- remember / forgot -->
-        <div class="flex items-center justify-between text-xs text-slate-600">
-          <label class="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-            />
-            <span>Lembrar de mim</span>
-          </label>
 
-          <button type="button" class="text-indigo-600 hover:underline">
-            Esqueceu a senha?
-          </button>
+      <main class="mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl place-items-center px-4 py-10 sm:px-6 lg:px-8">
+        <div class="w-full max-w-md">
+
+          <section class="rounded-3xl border border-white/10 bg-white/5 glass p-6 sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-sm text-slate-300">Bem-vindo de volta 👋</p>
+                <h2 class="mt-1 text-2xl font-semibold tracking-tight">Entrar no sistema</h2>
+                <p class="mt-2 text-sm text-slate-300">
+                  Acesse o painel para acompanhar as O.S., prioridades e indicadores.
+                </p>
+              </div>
+
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-indigo-400/40 to-cyan-400/20 ring-1 ring-white/15"></div>
+            </div>
+
+            <form class="mt-6 space-y-4" action="#" method="post">
+              <div>
+                <label for="email" class="text-sm font-medium text-slate-200">E-mail</label>
+                <div class="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    placeholder="voce@empresa.com"
+                    class="w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/60"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="password" class="text-sm font-medium text-slate-200">Senha</label>
+                <div class="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                    placeholder="••••••••"
+                    class="w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/60"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between gap-3">
+                <label class="flex items-center gap-2 text-sm text-slate-300">
+                  <input
+                    type="checkbox"
+                    class="h-4 w-4 rounded border-white/20 bg-white/5 text-indigo-500 focus:ring-indigo-500/60"
+                  />
+                  Lembrar de mim
+                </label>
+
+                <a href="#" class="text-sm text-slate-300 hover:text-slate-100 underline decoration-white/20 hover:decoration-white/40">
+                  Esqueci minha senha
+                </a>
+              </div>
+
+              <button
+                type="submit"
+                class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-500/90 px-4 py-2.5 text-sm font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              >
+                Entrar
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="relative py-2">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                  <div class="w-full border-t border-white/10"></div>
+                </div>
+                <div class="relative flex justify-center">
+                  <span class="bg-slate-950/40 px-3 text-xs text-slate-400 ring-1 ring-white/10 rounded-full">
+                    ou continue com
+                  </span>
+                </div>
+              </div>
+
+              <div class="grid gap-3 sm:grid-cols-2">
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+                >
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 12a5 5 0 110-10 5 5 0 010 10Z" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M4 22a8 8 0 0116 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                  SSO
+                </button>
+
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-sm font-medium ring-1 ring-white/15 hover:bg-white/15"
+                >
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3l7 4v10l-7 4-7-4V7l7-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M9.5 12l1.8 1.8L14.8 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Token
+                </button>
+              </div>
+
+              <p class="pt-2 text-center text-sm text-slate-300">
+                Não tem conta?
+                <a href="/register" class="font-medium text-slate-100 underline decoration-white/20 hover:decoration-white/40">
+                  Criar agora
+                </a>
+              </p>
+            </form>
+          </section>
+
+          <footer class="mt-6 text-center text-xs text-slate-500">
+            © 2025 • Sistema de Gestão de Ordens de Serviço
+          </footer>
         </div>
-
-        <!-- SIGN IN BUTTON -->
-        <button
-          type="submit"
-          class="w-full rounded-lg bg-slate-900 py-3 text-sm font-semibold text-white shadow-sm
-                 hover:bg-slate-800 transition"
-        >
-          Entrar
-        </button>
-
-        <!-- SIGNUP LINK -->
-        <p class="text-center text-xs text-slate-500 mt-4">
-          Ainda não tem uma conta?
-          <button type="button" class="text-indigo-600 hover:underline">
-            Criar conta gratuitamente
-          </button>
-        </p>
-      </form>
+      </main>
     </div>
-  </div>
-</div>
+  </body>
+</html>
