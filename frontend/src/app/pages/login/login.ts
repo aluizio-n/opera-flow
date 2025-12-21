@@ -1,20 +1,47 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { RouterLink } from '@angular/router';
+import { AuthService } from '../../shared/services/auth-service';
 
 @Component({
   selector: 'app-login',
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './login.html',
-  standalone: true,
-  imports: [FormsModule]
+  styleUrl: './login.css',
 })
-export class LoginComponent {
-  email = '';
-  password = '';
+export class Login {
+
+  private authService = inject(AuthService);
+
+  inputEmail = signal<string>('');
+  inputPassword =  signal<string>('');
+
+  inputEmailInvalido = computed(() => {
+    const val = this.inputEmail();
+    return val !== "" && val.length <= 6;
+  })
+
+  inputPasswordInvalido = computed(() => {
+    const val = this.inputPassword();
+    return val !== '' && val.length < 3;
+  })
+
+  formValido = computed(() => {
+    const emailOk = this.inputEmail().length > 6
+    const passwordOk = this.inputPassword().length >= 3
+
+    return  emailOk && passwordOk;
+  })
 
   login() {
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    // Chamar API aqui
+    const email = this.inputEmail();
+    const password = this.inputPassword();
+
+    this.authService.login(email, password);
+
+    alert(`Email: ${email}, passowrd: ${password}`);
+
   }
+
 }

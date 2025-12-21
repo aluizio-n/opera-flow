@@ -1,18 +1,22 @@
 import { Routes } from '@angular/router';
 
 
-import { LoginComponent } from './pages/login/login';
+import { Login } from './pages/login/login';
 import { Home } from './pages/home/home';
 import { Register } from './pages/register/register';
+import { authGuard } from './core/guards/auth/auth-guard';
+import { publicGuard } from './core/guards/public-guard';
 
 export const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
+    path: '',
+    component: Login,
+    canActivate: [publicGuard]
   },
   {
     path: 'home',
-    component: Home
+    component: Home,
+    canActivate: [authGuard]
   },
   {
     path: 'register',

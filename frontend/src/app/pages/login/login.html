@@ -65,7 +65,7 @@
               <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-indigo-400/40 to-cyan-400/20 ring-1 ring-white/15"></div>
             </div>
 
-            <form class="mt-6 space-y-4" action="#" method="post">
+            <form (ngSubmit)="login()" class="mt-6 space-y-4" action="#" method="post">
               <div>
                 <label for="email" class="text-sm font-medium text-slate-200">E-mail</label>
                 <div class="mt-2">
@@ -73,11 +73,16 @@
                     id="email"
                     name="email"
                     type="email"
+                    [(ngModel)]="inputEmail"
                     autocomplete="email"
                     required
                     placeholder="voce@empresa.com"
                     class="w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/60"
                   />
+                  <!-- Se a condição for verdadeira -->
+                @if (inputEmailInvalido()) {
+                    <p class="rounded-md bg-red-400 text-white p-3 font-bold" >Email inválido</p>
+                }
                 </div>
               </div>
 
@@ -88,11 +93,15 @@
                     id="password"
                     name="password"
                     type="password"
+                    [(ngModel)]="inputPassword"
                     autocomplete="current-password"
                     required
                     placeholder="••••••••"
                     class="w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/60"
                   />
+                  @if (inputPasswordInvalido()) {
+                    <p class="rounded-md bg-red-400 text-white p-3 font-bold" >Password inválido</p>
+                }
                 </div>
               </div>
 

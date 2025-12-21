@@ -11,7 +11,6 @@
   </head>
 
   <body class="min-h-screen bg-slate-950 text-slate-100">
-    <!-- Background decor (mesmo padrão das outras páginas) -->
     <div class="pointer-events-none fixed inset-0 overflow-hidden">
       <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl"></div>
       <div class="absolute -bottom-56 -left-20 h-[520px] w-[520px] rounded-full bg-cyan-500/15 blur-3xl"></div>
@@ -20,7 +19,6 @@
     </div>
 
     <div class="relative">
-      <!-- Topbar -->
       <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/60 glass">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <a href="home.html" class="flex items-center gap-3">
@@ -37,7 +35,7 @@
           </a>
 
           <div class="flex items-center gap-3">
-            <!-- Search -->
+
             <div class="hidden md:block">
               <label class="relative block">
                 <span class="sr-only">Pesquisar</span>
@@ -53,7 +51,6 @@
               </label>
             </div>
 
-            <!-- CTA primária (ajusta conforme papel do usuário) -->
             <a
               href="/abrir-os"
               class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-indigo-500/90 px-3.5 py-2 text-sm font-medium text-white shadow-sm shadow-indigo-500/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
@@ -65,21 +62,41 @@
               Abrir OS
             </a>
 
-            <!-- User -->
             <div class="flex items-center gap-3 rounded-2xl bg-white/5 ring-1 ring-white/10 px-3 py-2">
               <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-400/50 to-cyan-400/30 ring-1 ring-white/15"></div>
               <div class="hidden sm:block leading-tight">
                 <p class="text-sm font-medium">Usuário</p>
                 <p class="text-xs text-slate-300">Perfil: Admin • Turno A</p>
               </div>
+              <button
+                (click)="logout()"
+                class="inline-flex items-center gap-2 rounded-xl bg-red-500/10 px-3 py-2 text-sm font-medium text-red-300 ring-1 ring-red-500/20 hover:bg-red-500/20 hover:text-red-200 transition"
+                title="Sair do sistema"
+              >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M10 17l5-5-5-5M15 12H3"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+                Sair
+              </button>
             </div>
           </div>
         </div>
       </header>
 
-      <!-- Main -->
+
       <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <!-- Hero / contexto -->
         <section class="mb-6">
           <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6 sm:p-8">
             <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -144,7 +161,6 @@
                 </div>
               </div>
 
-              <!-- KPI "Admin dashboard" (requisitos do documento) -->
               <div class="grid w-full gap-3 sm:grid-cols-2 lg:w-[520px] lg:grid-cols-1">
                 <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
                   <div class="flex items-center justify-between">
@@ -186,11 +202,8 @@
           </div>
         </section>
 
-        <!-- Conteúdo principal -->
         <section class="grid gap-6 lg:grid-cols-3">
-          <!-- Coluna principal -->
           <div class="space-y-6 lg:col-span-2">
-            <!-- Quadro de status (pendente → em andamento → concluída) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -236,7 +249,6 @@
               </div>
             </div>
 
-            <!-- OS recentes (com campos do MVP) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -316,9 +328,7 @@
             </div>
           </div>
 
-          <!-- Sidebar -->
           <aside class="space-y-6">
-            <!-- OS por técnico (dashboard Admin) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <div class="flex items-center justify-between">
                 <h3 class="text-lg font-semibold tracking-tight">OS por técnico</h3>
@@ -359,7 +369,6 @@
               </div>
             </div>
 
-            <!-- Atalhos por papel (conforme guards) -->
             <div class="rounded-3xl border border-white/10 bg-white/5 glass p-6">
               <h3 class="text-lg font-semibold tracking-tight">Atalhos (por perfil)</h3>
               <p class="mt-1 text-sm text-slate-300">
