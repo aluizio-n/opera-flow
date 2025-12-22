@@ -1,4 +1,4 @@
-# 🌐 Opera Flow: Plataforma de Gestão de Fluxos de Trabalho
+ 🌐 Opera Flow: Plataforma de gestão de ordens de serviços industriais
 
 O **Opera Flow** é uma plataforma robusta e moderna projetada para otimizar a **gestão de fluxos de trabalho** e a **automação de processos** em ambientes empresariais. Seu objetivo é fornecer uma interface intuitiva e ferramentas poderosas para que os usuários possam definir, monitorar e executar processos de negócios de forma eficiente.
 
@@ -68,4 +68,5 @@ Este projeto está sendo ativamente desenvolvido pelos seguintes colaboradores:
 - Alex de Souza
 - André Filipe
 - Paulo Rezende
+
 
