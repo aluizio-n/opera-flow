@@ -11,8 +11,6 @@ import { EmailValidators } from '../../core/validators/email.validator';
 })
 export class Register {
 
-  // authService
-
   private formBuilder = inject(FormBuilder);
 
   formNovoUser = this.formBuilder.group({

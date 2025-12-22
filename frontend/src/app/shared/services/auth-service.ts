@@ -2,7 +2,6 @@ import { inject, Injectable, signal } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { User } from '../models/user';
-import { email } from '@angular/forms/signals';
 
 @Injectable({
   providedIn: 'root',
